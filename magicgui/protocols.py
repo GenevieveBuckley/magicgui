@@ -2,16 +2,12 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    Callable,
-    Iterable,
-    Optional,
-    Protocol,
-    Tuple,
-    runtime_checkable,
-)
+from typing import TYPE_CHECKING, Any, Callable, Iterable, Optional, Tuple
+
+try:
+    from typing import Protocol, runtime_checkable
+except ImportError:
+    from typing_extensions import Protocol, runtime_checkable  # type: ignore
 
 if TYPE_CHECKING:
     from magicgui.widgets import Widget

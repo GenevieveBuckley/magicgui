@@ -4,19 +4,12 @@ import inspect
 import pathlib
 from collections import abc, defaultdict
 from enum import EnumMeta
-from typing import (
-    Any,
-    Callable,
-    DefaultDict,
-    Dict,
-    List,
-    Optional,
-    Tuple,
-    Type,
-    cast,
-    get_args,
-    get_origin,
-)
+from typing import Any, Callable, DefaultDict, Dict, List, Optional, Tuple, Type, cast
+
+try:
+    from typing import get_args, get_origin  # type: ignore
+except ImportError:
+    from typing_extensions import get_args, get_origin  # type: ignore
 
 from magicgui import widgets
 from magicgui.protocols import WidgetProtocol
