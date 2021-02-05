@@ -1,0 +1,97 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/nbclient/client.py", line 1087, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/nbclient/client.py", line 540, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/nbclient/client.py", line 832, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/nbclient/client.py", line 740, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply['content'])
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+@magicgui(a_string={'min': 10})
+def whoops(a_string: str = 'Hi there'):
+    ...
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m<ipython-input-6-a8e04fb36c43>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;34m@[0m[0mmagicgui[0m[0;34m([0m[0ma_string[0m[0;34m=[0m[0;34m{[0m[0;34m'min'[0m[0;34m:[0m [0;36m10[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0;32mdef[0m [0mwhoops[0m[0;34m([0m[0ma_string[0m[0;34m:[0m [0mstr[0m [0;34m=[0m [0;34m'Hi there'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m     [0;34m...[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/magicgui/_magicgui.py[0m in [0;36minner_func[0;34m(func)[0m
+[1;32m    203[0m         [0;31m# MagicFactory is unnecessary if we are immediately instantiating the widget,[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    204[0m         [0;31m# so we shortcut that and just return the FunctionGui here.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 205[0;31m         [0;32mreturn[0m [0mmagic_class[0m[0;34m([0m[0mfunc[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    206[0m [0;34m[0m[0m
+[1;32m    207[0m     [0;32mif[0m [0mfunction[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/magicgui/widgets/_function_gui.py[0m in [0;36m__init__[0;34m(self, function, call_button, layout, labels, tooltips, app, visible, auto_call, result_widget, param_options, name, **kwargs)[0m
+[1;32m    146[0m             [0mlabels[0m[0;34m=[0m[0mlabels[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    147[0m             [0mvisible[0m[0;34m=[0m[0mvisible[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 148[0;31m             [0mwidgets[0m[0;34m=[0m[0mlist[0m[0;34m([0m[0msig[0m[0;34m.[0m[0mwidgets[0m[0;34m([0m[0mapp[0m[0;34m)[0m[0;34m.[0m[0mvalues[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    149[0m             [0mreturn_annotation[0m[0;34m=[0m[0msig[0m[0;34m.[0m[0mreturn_annotation[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    150[0m             [0mname[0m[0;34m=[0m[0mname[0m [0;32mor[0m [0mself[0m[0;34m.[0m[0m_callable_name[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/magicgui/signature.py[0m in [0;36mwidgets[0;34m(self, app)[0m
+[1;32m    215[0m         [0;34m"""Return mapping from parameters to widgets for all params in Signature."""[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    216[0m         return MappingProxyType(
+[0;32m--> 217[0;31m             [0;34m{[0m[0mn[0m[0;34m:[0m [0mp[0m[0;34m.[0m[0mto_widget[0m[0;34m([0m[0mapp[0m[0;34m)[0m [0;32mfor[0m [0mn[0m[0;34m,[0m [0mp[0m [0;32min[0m [0mself[0m[0;34m.[0m[0mparameters[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    218[0m         )
+[1;32m    219[0m [0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/magicgui/signature.py[0m in [0;36m<dictcomp>[0;34m(.0)[0m
+[1;32m    215[0m         [0;34m"""Return mapping from parameters to widgets for all params in Signature."""[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    216[0m         return MappingProxyType(
+[0;32m--> 217[0;31m             [0;34m{[0m[0mn[0m[0;34m:[0m [0mp[0m[0;34m.[0m[0mto_widget[0m[0;34m([0m[0mapp[0m[0;34m)[0m [0;32mfor[0m [0mn[0m[0;34m,[0m [0mp[0m [0;32min[0m [0mself[0m[0;34m.[0m[0mparameters[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    218[0m         )
+[1;32m    219[0m [0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/magicgui/signature.py[0m in [0;36mto_widget[0;34m(self, app)[0m
+[1;32m    132[0m         [0mvalue[0m [0;34m=[0m [0;32mNone[0m [0;32mif[0m [0mself[0m[0;34m.[0m[0mdefault[0m [0;32mis[0m [0mself[0m[0;34m.[0m[0mempty[0m [0;32melse[0m [0mself[0m[0;34m.[0m[0mdefault[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    133[0m         [0mannotation[0m[0;34m,[0m [0moptions[0m [0;34m=[0m [0msplit_annotated_type[0m[0;34m([0m[0mself[0m[0;34m.[0m[0mannotation[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 134[0;31m         widget = create_widget(
+[0m[1;32m    135[0m             [0mname[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0mname[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    136[0m             [0mvalue[0m[0;34m=[0m[0mvalue[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/magicgui/widgets/_bases/create_widget.py[0m in [0;36mcreate_widget[0;34m(value, annotation, name, param_kind, label, gui_only, app, widget_type, options)[0m
+[1;32m     88[0m             [0mkwargs[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0mopts[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     89[0m             [0mkwargs[0m[0;34m.[0m[0mpop[0m[0;34m([0m[0;34m"widget_type"[0m[0;34m,[0m [0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 90[0;31m             [0mwidget[0m [0;34m=[0m [0mwdg_class[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     91[0m             [0;32mif[0m [0m_kind[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     92[0m                 [0mwidget[0m[0;34m.[0m[0mparam_kind[0m [0;34m=[0m [0m_kind[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/magicgui/widgets/_concrete.py[0m in [0;36m__init__[0;34m(self, **kwargs)[0m
+[1;32m    162[0m                 [0mwidget[0m [0;34m=[0m [0mtransform[0m[0;34m([0m[0mwidget[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    163[0m             [0mkwargs[0m[0;34m[[0m[0;34m"widget_type"[0m[0;34m][0m [0;34m=[0m [0mwidget[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 164[0;31m             [0msuper[0m[0;34m([0m[0mcls[0m[0;34m,[0m [0mself[0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    165[0m [0;34m[0m[0m
+[1;32m    166[0m         [0mcls[0m[0;34m.[0m[0m__init__[0m [0;34m=[0m [0m__init__[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/magicgui/widgets/_bases/value_widget.py[0m in [0;36m__init__[0;34m(self, value, bind, **kwargs)[0m
+[1;32m     32[0m         [0mself[0m[0;34m.[0m[0m_bound_value[0m[0;34m:[0m [0mAny[0m [0;34m=[0m [0mbind[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     33[0m         [0mself[0m[0;34m.[0m[0m_call_bound[0m[0;34m:[0m [0mbool[0m [0;34m=[0m [0;32mTrue[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 34[0;31m         [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     35[0m         [0;32mif[0m [0mvalue[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     36[0m             [0mself[0m[0;34m.[0m[0mvalue[0m [0;34m=[0m [0mvalue[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/hostedtoolcache/Python/3.8.7/x64/lib/python3.8/site-packages/magicgui/widgets/_bases/widget.py[0m in [0;36m__init__[0;34m(self, widget_type, name, annotation, label, tooltip, visible, enabled, gui_only, backend_kwargs, **extra)[0m
+[1;32m     63[0m         [0mlabel[0m [0;34m=[0m [0mlabel[0m [0;32mor[0m [0mextra[0m[0;34m.[0m[0mpop[0m[0;34m([0m[0;34m"description"[0m[0;34m,[0m [0;32mNone[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     64[0m         [0;32mif[0m [0mextra[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 65[0;31m             raise TypeError(
+[0m[1;32m     66[0m                 [0;34mf"{type(self).__name__} got an unexpected "[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     67[0m                 [0;34mf"keyword argument: {', '.join(extra)}"[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: LineEdit got an unexpected keyword argument: min
+TypeError: LineEdit got an unexpected keyword argument: min
+
